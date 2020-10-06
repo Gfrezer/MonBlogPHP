@@ -4,14 +4,13 @@ namespace App\Repositories;
 
 use App\Models\User;
 
-class UserRepository
+class UserRepository extends ResourceRepository
 {
-
     protected $user;
 
     public function __construct(User $user)
     {
-        $this->user = $user;
+        $this->model = $user;
     }
 
     private function save(User $user, array $inputs)
@@ -23,11 +22,6 @@ class UserRepository
         $user->save();
     }
 
-    public function getPaginate($n)
-    {
-        return $this->user->paginate($n);
-    }
-
     public function store(array $inputs)
     {
         $user = new $this->user;
@@ -36,21 +30,6 @@ class UserRepository
         $this->save($user, $inputs);
 
         return $user;
-    }
-
-    public function getById($id)
-    {
-        return $this->user->findOrFail($id);
-    }
-
-    public function update($id, array $inputs)
-    {
-        $this->save($this->getById($id), $inputs);
-    }
-
-    public function destroy($id)
-    {
-        $this->getById($id)->delete();
     }
 
 }
