@@ -1,4 +1,4 @@
-@extends('templateListe')
+@extends('layouts.templateListe')
 
 @section('contenu')
 <br>
