@@ -17,19 +17,10 @@ class UserRepository extends ResourceRepository
     {
         $user->name = $inputs['name'];
         $user->email = $inputs['email'];
+        $user->password = $inputs['password'];
         $user->admin = isset($inputs['admin']);
 
         $user->save();
-    }
-
-    public function store(array $inputs)
-    {
-        $user = new $this->user;
-        $user->password = bcrypt($inputs['password']);
-
-        $this->save($user, $inputs);
-
-        return $user;
     }
 
 }
