@@ -21,8 +21,7 @@ class UserController extends Controller
     public function index()
     {
         $users = $this->userRepository->getPaginate($this->nbrPerPage);
-        $links = $users->render();
-
+        $links = $users->render();       
         return view('listeUsers', compact('users', 'links'));
     }
 
