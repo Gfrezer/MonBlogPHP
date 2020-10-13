@@ -4,6 +4,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Articles\PostController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,13 +16,14 @@ use App\Http\Controllers\HomeController;
 |
  */
 
-Route::get('/', function () {
+Route::get('/accueil', function () {
     return view('welcome');
 })->name('accueil');
 Auth::routes();
 
 
-Route::resource('user', UserController::class)->middleware('admin');
+Route::resource('admin', UserController::class)->middleware('admin');
+
 Route::resource('post', PostController::class)->except(['show', 'edit', 'update']);
 
 Route::get('home', [HomeController::class, 'index'])->name('home');

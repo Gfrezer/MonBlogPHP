@@ -17,7 +17,7 @@ class Admin
     public function handle(Request $request, Closure $next)
     {
         if(auth()->user()->admin == 1){
-             return $next($request);
+             return redirect()->route('admin');
         }
    
         return redirect()->route('post.index');
