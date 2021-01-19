@@ -398,6 +398,7 @@
 </head>
 
 <body class="antialiased">
+    <h1>Variable {{ env('GAEL_ENV') }}</h1>
     <div
         class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
         <img src="css/images.jpeg">
