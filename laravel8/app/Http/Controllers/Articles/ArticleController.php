@@ -6,7 +6,7 @@ use App\Repositories\PostRepository;
 use App\Http\Requests\PostRequest;
 use App\Http\Controllers\Controller;
 
-class PostController extends Controller
+class ArticleController extends Controller
 {
 
     protected $postRepository;
@@ -23,10 +23,10 @@ class PostController extends Controller
 
 	public function index()
 	{
-		$posts = $this->postRepository->getPaginate($this->nbrPerPage);
-		$links = $posts->render();
+		$articles = $this->postRepository->getPaginate($this->nbrPerPage);
+		$links = $articles->render();
 
-		return view('articles.listeArticles', compact('posts', 'links'));
+		return view('articles.listeArticles', compact('articles', 'links'));
 	}
 
 	public function create()
@@ -40,7 +40,7 @@ class PostController extends Controller
 
 		$this->postRepository->store($inputs);
 
-		return redirect(route('post.index'));
+		return redirect(route('article.index'));
 	}
 
 	public function destroy($id)

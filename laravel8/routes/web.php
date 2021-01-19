@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\Articles\PostController;
+use App\Http\Controllers\Articles\ArticleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
@@ -15,15 +15,14 @@ use App\Http\Controllers\HomeController;
 | contains the "web" middleware group. Now create something great!
 |
  */
-
-Route::get('/accueil', function () {
+Route::get('logout', function () {
     return view('welcome');
-})->name('accueil');
+});
+Route::get('/', function () {
+    return view('welcome');
+});
 Auth::routes();
 
-
-Route::resource('admin', UserController::class)->middleware('admin');
-
-Route::resource('post', PostController::class)->except(['show', 'edit', 'update']);
-
-Route::get('home', [HomeController::class, 'index'])->name('home');
+Route::resource('user',UserController::class)->middleware('admin');
+Route::resource('article', ArticleController::class)->except(['show', 'edit', 'update']);
+Route::get('home', [HomeController::class,'index']);

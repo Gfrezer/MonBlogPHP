@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\DB;
+
 class LoginController extends Controller
 {
     /*
@@ -40,8 +43,7 @@ class LoginController extends Controller
     }
     public function login(Request $request)
     {  
-        $inputVal = $request->all();
-   
+        $inputVal = $request->all();          
         $this->validate($request, [
             'email' => 'required|email',
             'password' => 'required',
@@ -51,11 +53,10 @@ class LoginController extends Controller
             if (auth()->user()->admin == 1) {
                 return redirect()->route('user.index');
             }else{
-                return redirect()->route('user.index');
+                return redirect()->route('article.index');
             }
         }else{
-            return redirect()->route('login')
-                ->with('error','Email & Password are incorrect.');
+           return redirect()->back()->withErrors(['name' => 'Email ou password invalide !']); 
         }     
     }
 }

@@ -6,7 +6,7 @@
     <div class="panel panel-info">
         <div class="panel-heading">Ajout d'un article</div>
         <div class="panel-body">
-            {!! Form::open(['route' => 'post.store']) !!}
+            {!! Form::open(['route' => 'article.store']) !!}
             <div class="form-group {!! $errors->has('titre') ? 'has-error' : '' !!}">
                 {!! Form::text('titre', null, ['class' => 'form-control', 'placeholder' => 'Titre']) !!}
                 {!! $errors->first('titre', '<small class="help-block">:message</small>') !!}

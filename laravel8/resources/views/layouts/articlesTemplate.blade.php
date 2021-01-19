@@ -22,7 +22,7 @@
 <body>
     <header class="jumbotron">
         <div class="container">
-            <h1 class="page-header">{!! link_to_route('post.create', 'Mon joli blog') !!}</h1>
+            <h1 class="page-header"> Mon blog</h1>
             @yield('header')
         </div>
     </header>

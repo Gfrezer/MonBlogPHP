@@ -22,12 +22,12 @@ class UserController extends Controller
     {
         $users = $this->userRepository->getPaginate($this->nbrPerPage);
         $links = $users->render();       
-        return view('listeUsers', compact('users', 'links'));
+        return view('users.listeUsers', compact('users', 'links'));
     }
 
     public function create()
     {
-        return view('create');
+        return view('auth.register');
     }
 
     public function store(UserCreateRequest $request)
@@ -41,14 +41,14 @@ class UserController extends Controller
     {
         $user = $this->userRepository->getById($id);
 
-        return view('show', compact('user'));
+        return view('users.show', compact('user'));
     }
 
     public function edit($id)
     {
         $user = $this->userRepository->getById($id);
 
-        return view('edit', compact('user'));
+        return view('users.edit', compact('user'));
     }
 
     public function update(UserUpdateRequest $request, $id)

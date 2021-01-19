@@ -1,4 +1,4 @@
-@include('./layouts/app')
+@include('../layouts/app')
 @extends('layouts.templateListe')
 
 @section('contenu')
@@ -33,7 +33,10 @@
                     <td>{!! link_to_route('user.edit', 'Modifier', [$user->id], ['class' => 'btn btn-warning
                         btn-block']) !!}
                     </td>
-                    <td>{!! link_to_route('post.create', 'Ajout Article',[$user->id],['class' => 'btn btn-warning
+                    <td>{!! link_to_route('article.create', 'Ajout Article',[$user->id],['class' => 'btn btn-warning
+                        btn-block']) !!}
+                    </td>
+                    <td>{!! link_to_route('article.index', 'Articles',[$user->id],['class' => 'btn btn-warning
                         btn-block']) !!}
                     </td>
                     <td>

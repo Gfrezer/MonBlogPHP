@@ -1,4 +1,4 @@
-@extends('layouts.templateListe')
+@extends('../layouts.templateListe')
 
 @section('contenu')
 <div class="col-sm-offset-4 col-sm-4">
